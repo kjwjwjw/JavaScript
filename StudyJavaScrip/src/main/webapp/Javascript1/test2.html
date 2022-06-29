@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+ *  문자와 문자열 구분없이 String 타입사용( '' 와" " 구별없이 사용)
+ *  숫자(Number) ,논리(Boolean), 특수값 Null 사용
+ 	-별도로 타입을 정하지 않고 일반적인(공통적인) 타입으로 변수 선언 가능함
+ 	이 때, 저장되는 데이터에 따라 변수의 타입이 자동으로 결정됨
+ 	
+ 	=> 공통 타입으로 사용되는 키워드는 var 또는 let 또는 const중 하나 사용
+ 	변수명 지정 시 자바의 식별자 작성 규칙과 거의 동일함
+ */
+ 
+ // 공통타입으로 변수 선언 및 초기화
+//   var num; // undefined타입으로 변수 num 선언됨
+//   alert("num의 타입 :"  +typeof(num));
+	
+
+	var num = 10; // undefined타입으로 변수 num 선언됨
+// 	alert("num의 타입 :" + typeof (num));
+
+	var str = "자바스크립트";
+// 	alert("str의 타입 :" + typeof (str));
+
+	var b = true;
+// 	alert("b의 타입 :" + typeof (b));
+	
+	var v = null; //특수한 값인 null 값도 저장 가능
+// 	alert("v의 타입 :" + typeof (v));
+	
+	//--------------------------------- 변수 사용 연습----
+	// document.write() 함수를 호출하여 웹페이지에 출력할 데이터 전달 시 페이지에 출력
+	var data= 100;
+	document.write("<h3>" +data + "<h3>");
+
+	var data2 = "Hello, Wolrd!"
+	document.write("<h1>" +  data2 + "</h1>");
+	
+	data2 ="JAVA, JSP"
+	document.write("<h1>" +  data2 + "</h1>");
+	
+	// ====================
+	// var, let, const 차이점 비교
+	// 1. var : 변수 선언 시 동일한 이름의 변수를 다시 선언하더라도 오류가 없으며
+    //			다른 타입의 데이터로 변경하더라도 문제없이 사용가능함
+	var num1 =10;
+	document.write(num1+ "<br>");
+	
+	var num1 ="홍길동";
+	document.write(num1 + "<br>");
+	//-------------------------------------------
+	// 2. let
+	let num2 = 10;
+	document.write(num2+ "<br>");
+
+	num2 = "홍길동";
+	document.write(num2+ "<br>");
+	//-----------------------------------------------
+	// 3.const : constant(상수)의 약자로 선언된 변수를 상수로취급함
+	const num3 = 10;
+	document.write(num3+ "<br>");
+	
+	num3 = "홍길동";
+	document.write(num3+ "<br>");
+	</script>
+</head>
+<body>
+ <script type="text/javascript">
+ 	document.write("이 곳은 body 영역 h1 태그 앞입니다.<br>")
+ </script>
+ 
+ <h1>이 곳은 body 영역입니다.</h1>
+ 
+  <script type="text/javascript">
+ 	document.write("이 곳은 body 영역 h1 태그 뒤입니다.<br>")
+ </script>
+ 
+</body>
+</html>

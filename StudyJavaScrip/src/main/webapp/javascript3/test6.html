@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체 기초</title>
+<script type="text/javascript">
+	/*
+	3. document 객체
+	- HTML 문서 정보(내용)를 관리하는 객체
+	- 문서 정보 확인, 내용 변경 등의 작업 수행 가능
+	- 속성 : title, bgColor, fgColor 등
+	  함수 : write() 등
+	*/
+	function func1() {
+		// HTML 문서 제목(title 태그 내용) 확인
+		alert(document.title);		  
+	}
+
+	function func2() {
+		// HTML 문서 제목 변경(= 제목표시줄의 내용 변경 = title 속성값 변경)
+		document.title = "변경된 타이틀";
+	}
+
+	function func3() {
+		// HTML 문서 색상 정보 확인(= bgColor, fgColor 속성 활용)
+		alert("bgColor : " + document.bgColor + ", fgColor : " + document.fgColor);
+	}
+
+	function func4() {
+		// HTML 문서 색상 정보 변경
+		// => 속성값으로 "색상명" 또는 "#RGB코드값" 등 지정("#RRGGBB")
+		//    빛의 3원색 원리를 사용하여 16진수 RED값 2자리, GREEN값 2자리, BLUE값 2자리로 표현
+		// => 즉, 값이 커질 수록 해당 색이 진해지며, 
+		//    모든 값을 최대치(FFFFFF)로 설정하면 희색, 최소치(000000)로 설정하면 검정색
+		
+		// 1. 색상명을 지정하여 색상을 변경
+// 		document.bgColor = "RED"; // 배경색 "RED"(= 빨간색) 변경
+// 		document.fgColor = "WHITE"; // 전경색(= 주로 텍스트) "WHITE"(= 흰색) 변경
+
+		// 2. RGB 값을 지정하여 색상을 변경
+// 		document.bgColor = "#FF0000"; // #FF0000 = RED 와 동일
+// 		document.fgColor = "#FFFFFF"; // #FFFFFF = WHITE 와 동일
+
+		document.bgColor = "#FFFF00"; // #FFFF00 = YELLOW
+		document.fgColor = "#0000FF"; // #0000FF = BLUE
+		
+	}
+	
+	function func5(color) {
+		// 파라미터로 전달받은 색상명을 사용하여 배경색(bgColor) 변경하기
+		document.bgColor = color;
+	}
+	
+	ale('aa');
+</script>
+</head>
+<body>
+	<h1>document 객체</h1>
+	<input type="button" value="문서 제목 출력" onclick="func1()"><br>
+	<input type="button" value="문서 제목 변경" onclick="func2()"><br>
+	<input type="button" value="문서 배경색 출력" onclick="func3()"><br>
+	<input type="button" value="문서 배경색 변경" onclick="func4()"><br>
+	<hr>
+	
+	<!-- 라디오버튼을 사용하여 "CYAN", "GRAY", "MAGENTA" 버튼 생성(name 속성값은 bgColor) -->
+	<!-- 라디오버튼 클릭 이벤트 발생 시 func5() 함수 호출 -->
+	<!-- 함수 파라미터로 색상명을 문자열로 전달하면, 함수에서 전달받아 해당 색으로 배경색 변경 -->
+	<input type="radio" name="bgColor" value="CYAN" onclick="func5('CYAN')">CYAN
+	<input type="radio" name="bgColor" value="GRAY" onclick="func5('GRAY')">GRAY
+	<input type="radio" name="bgColor" value="MAGENTA" onclick="func5('MAGENTA')">MAGENTA
+	
+	<!-- 이름을 직접 지정하지 않고 value 속성값을 함수에 전달할 경우 -->
+	<!-- this 라는 값 지정 시 현재 태그를 의미하게 되고, this.value 지정 시 현재 태그의 value 속성값 의미 -->
+	<input type="radio" name="bgColor" value="SKYBLUE" onclick="func5(this.value)">SKYBLUE	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

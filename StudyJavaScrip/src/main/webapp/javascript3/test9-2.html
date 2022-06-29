@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// onload 이벤트
+	// window 객체의 onload 속성에 특정 함수를 선언하는 함수 선언문을 대입할 경우
+	// 현재 문서(HTML)의 본문(body 영역)이 로딩 완료된 후 onload 이벤트가 동작하며,
+	// onload 이벤트에 대입되어 있는 함수가 자동으로 호출됨
+	// 이벤트 등록 방법1. 자바스크립트에서 window.onload 형식으로 이벤트 등록
+	// => window.onload = function() { 실행할 함수 코드... }
+	// 이벤트 등록 방법2. body 태그에 onload 속성을 통해 이벤트 등록
+	// => <body onload="호출할함수()">
+	
+// 	window.onload = function() { // 함수의 이름을 지정하지 않는 익명 함수 선언
+// 		alert("이 함수는 언제 실행될까요?");
+// 		// 위치상으로는 가장 먼저 실행될 자바스크립트 코드이지만,
+// 		// onload 이벤트에 등록된 함수이므로 body 영역의 모든 코드가 실행된 후 자동으로 실행됨
+		
+// 		// 따라서, 이 함수 내에서는 body 태그 영역의 요소에 접근도 가능함
+// 		// => body 태그 내의 내용이 모두 로딩된 후이므로 body 의 모든 요소에 접근 및
+// 		//    제어가 가능한 시점이라는 의미
+// // 		alert("window.onload 이벤트의 document.body : " + document.body);
+// 		// => body 태그에 해당하는 객체가 이미 생성된 후(body 가 로딩된 후)이므로
+// 		//    document.body 에 접근 시 HTMLBodyElement 객체가 출력됨(객체가 존재함)
+		
+// 		// 하나의 함수 내에서 body 영역의 다양한 제어가 가능
+// 		document.body.style.background = "GRAY";
+// 	}
+	
+	function func1() {
+		alert("이 함수는 언제 실행될까요?");
+		document.body.style.background = "GRAY";
+	}
+	
+</script>
+
+
+<!-- 기본적으로 HTML 및 자바스크립트 코드는 위에서 아래로 차례대로 번역 후 실행됨 -->
+<script type="text/javascript">
+	alert("작업 - 1"); // 첫번째로 실행되는 스크립트
+	alert("작업-1 의 document.body : " + document.body); // null 값 출력됨(body 존재하지 않음)
+</script>
+</head>
+<body onload="func1()"> <!-- body 영역 로딩 완료 후 onload 이벤트에 의해 func1() 함수 호출됨 -->
+	<h1>test9-2.html</h1>
+	<script>alert("작업 - 2");</script> <!-- 두번째 스크립트 -->
+	<!-- 세번째 스크립트 -->
+	<script>
+		alert("작업 - 3");
+		alert("작업-3 의 document.body : " + document.body);
+	</script> 
+	<h1>body 태그 내의 모든 요소 로딩 완료!</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

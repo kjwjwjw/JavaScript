@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./test2.js"></script>
+<script type="text/javascript">
+/*
+ * <기본문법>
+ * function 함수명(매개변수선언...) {}
+ */
+ 
+ function showMessage(data) { //
+	 document.write(data+ " : " +  typeof(data) +"<br>" );
+}
+ 
+  showMessage("Helo,World!");
+  showMessage(500);
+  showMessage("김준우");
+  
+  document.write("<hr>");
+  
+  //---------------------------------------------------
+  // 1. 함수선언시 매개변수에 기보값을 직접 저장하는 방법
+   function showMessage2(data = "전달받은 데이터 없음") { //
+	 document.write(data+ " : " +  typeof(data) +"<br>" );
+}
+   showMessage2("Helo,World!");
+   showMessage2();	
+   
+   // 2. 함수 내에서if문을 사용하여 전달받은 데이터가 undefined 일 경우 기본값을 저장
+      function showMessage3(data) { //
+	   if (data == undefined) {
+		   data = "전달받은 데이터없음222";
+		   
+	   }
+	 document.write(data+ " : " +  typeof(data) +"<br>" );
+}
+   showMessage3("Hello World!");
+   showMessage3();
+   
+   // =============================================
+   // 파라미터가 복수개인 함수
+   // 정수 2개(num1, num2)를 전달받아 합계를 출력하는 함수 sum(0)정의
+
+   function sum(num1,num2) {
+	   document.write("num1+num2의 합계:" +(num1+num2));
+   }
+   
+   sum(2,3);
+   
+   document.write("<hr>");
+   
+
+   // =================================================
+   //test2.js파일의 login() 함수를호출
+   // 아이디 "admin"이고 , 패스워드가"1234" 일 경우 "로그인 성공"을 출력
+   // 아니면 "로그인 실패" 출력하기
+   login("hong",  "1234");
+   document.write("<hr>");
+   login("admin", "1234");
+
+   </script>
+</head>
+
+<body>
+
+</body>
+</html>

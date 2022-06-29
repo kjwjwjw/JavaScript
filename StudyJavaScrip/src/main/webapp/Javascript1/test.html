@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  자바스크립트 사용을 위해서는<script> 태그를 사용하여 내부에 자바스크립트 코드를 기술해야함 -->
+
+<script type="text/javascript">
+	// 자바스크립트 코드가 기술되는 위치
+	// alert(데이터); 함수는 특정 데이터를 웹브라우저 팝업창에 출력하는 내장 함수
+	alert("alert 함수호출됨");	
+</script>
+
+<!-- 
+외부로부터 자바스크립트 파일을 불러오기 위해서는 script 태그를 사용하여
+src 속성을 통해 외부 자바스크립트 파일을 지정해야함
+ -->
+<script type="text/javascript" src="./test.js">
+	alert("이코드는 실행이될까요");
+</script>
+
+
+</head>
+<body>
+	<h1> test.html</h1>
+<!--  	 head태그내에서 뿐만 아니라 body태그 내에서도 사용가능 -->
+ 	 <script type="text/javascript">
+ 	 		alert("이 곳은 body태그 내부입니다");
+ 	 </script>
+</body>
+</html>

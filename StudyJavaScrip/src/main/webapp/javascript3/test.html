@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// alert() 함수를 호출하여 "버튼 클릭됨" 메세지 출력하는 btnClick() 함수 정의
+	function btnClick() {
+		alert("버튼 클릭됨!");
+	}
+	
+	// 전달받은 텍스트를 출력하는 btnClick2() 함수 정의
+	function btnClick2(msg) { // 파라미터로 데이터 전달
+		alert(msg); // 전달받은 데이터 출력
+	}
+	
+	// 문자열을 리턴하는 btnClick3() 함수 정의
+	function btnClick3() {
+		return "btnClick3() 함수 리턴값";
+	}
+
+	// 특정 웹사이트(URL)로 이동하는 goUrl() 함수 정의
+	function goUrl() {
+		// 자바스크립트 내장 객체인 location 객체의 href 속성을 사용하여 이동할 페이지를 지정(href 속성에 대입)
+		// location.href = "이동할 URL";
+		location.href = "http://www.itwillbs.co.kr";
+	}
+	
+	// 접속할 웹사이트 주소를 입력받아 해당 주소로 이동하는 goInputUrl() 함수 정의
+	function goInputUrl() {
+		// 1. 사용자로부터 주소 입력받아 변수 url 에 저장
+		// => 주의! 주소 입력 시 http:// 필수로 입력해야함
+		var url = prompt("URL 입력");
+		
+		// 2. 입력받은 주소(url)가 아무것도 없을 경우("") 또는 null 값이 입력됐을 경우 "취소합니다" 메세지 출력
+		//    아니면, 입력받은 주소(url) 로 이동 작업 수행
+		if(url == null || url == "") {
+			alert("이동을 취소합니다.");
+		} else {
+			location.href = url;
+		}
+	}
+</script>
+</head>
+<body>
+	<!-- 
+	이벤트(Event) : 어떤 대상(버튼, 텍스트상자 등 = Component(컴포넌트))에 사용자가 액션을 취하는 것
+	=> ex) 버튼 클릭, 텍스트 입력, 마우스 오버 등
+	
+	이벤트 처리(Event Handling) : 이벤트가 발생했을 때 지정된 특정 작업을 수행하는 것
+	=> ex) 버튼 클릭 시 메세지 출력, 패스워드 입력 시 규칙 판별, 마우스 오버 시 이미지를 교체
+	=> 이벤트가 발생하는 대상 컴포넌트에 onXXX 속성을 사용하여 이벤트를 지정하고,
+	   해당 속성의 값으로 이벤트 발생 시 처리할 자바스크립트를 지정하여 이벤트 처리 수행
+	=> 이벤트 종류 : 클릭 이벤트(click), 마우스 이벤트(mouseXXX) 등
+	   ex) 클릭 이벤트를 등록하는 속성 : onclick
+	       마우스 오버 이벤트를 등록하는 속성 : onmouseover
+ 	=> onXXX 속성의 값으로 자바스크립트 함수 등을 호출하거나 자바스크립트 속성을 지정하여 작업 수행
+ 	   ex) onclick="alert('메세지 출력')" 지정 시 해당 대상 클릭 시 "메세지 출력" 이라는 문자 출력됨
+ 	       (주의! onXXX 속성을 큰따옴표("")로 지정하므로 자바스크립트 내에서 따옴표는 작은따옴표('') 사용)
+
+	[ HTML 태그에서 이벤트 등록 기본 문법 ]
+	<XXX태그 onXXX="자바스크립트코드">
+	-->
+	
+	<!--
+	HTML 태그를 사용하여 버튼 생성하기
+	1) <input> 태그의 type="button" 속성 사용 => value 속성에 버튼 텍스트 지정
+	2) <button> 태그 사용 => 시작 태그와 끝 태그 사이에 버튼 텍스트 지정
+	-->
+<!-- 	<input type="button" value="Button"><br> -->
+<!-- 	<button>Button2</button> -->
+
+	<!-- 버튼에 다양한 이벤트 등록하여 처리 -->
+	<!-- 버튼에 이벤트를 등록하여 alert() 함수 호출(메세지 출력) 작업 수행 -->
+	<input type="button" value="버튼1" onclick="alert('버튼1 클릭됨')"><br>
+	<input type="button" value="버튼2" ondblclick="alert('버튼2 더블클릭됨')"><br>
+	<input type="button" value="버튼3" onmouseover="alert('버튼3 마우스오버')"><br>
+	<!-- 버튼 이벤트에 자바스크립트 내장함수를 직접 지정하지 않고, 사용자 정의함수도 지정하여 호출 가능 -->
+	<button onclick="btnClick()">버튼4</button><br>
+	<!-- 버튼5 클릭 시 btnClick2() 함수 호출 => 함수 파라미터에 "버튼5" 텍스트 전달(함수내에서 alert() 함수로 "버튼5 클릭됨!" 출력) -->
+	<button onclick="btnClick2('버튼555555')">버튼5</button><br>
+	<!-- 버튼6 클릭 시 btnClick2() 함수 호출 => 함수로부터 리턴되는 값을 전달받아 출력 -->
+	<button onclick="alert(btnClick3())">버튼6</button><br>
+	
+	<hr>
+	<!-- "아이티윌 부산교육센터 홈페이지" 버튼 클릭 시 "http://www.itwillbs.co.kr" 로 이동 -->
+	<!-- 1. 하이퍼링크 태그(a)를 사용하여 이동 -->
+<!-- 	<a href="http://www.itwillbs.co.kr">아이티윌 부산교육센터 홈페이지</a> -->
+	<a href="http://www.itwillbs.co.kr"><input type="button" value="아이티윌 부산교육센터 홈페이지"></a><br>
+	
+	<!-- 2. 버튼의 onclick 속성을 통해 자바스크립트 코드를 사용하여 이동 -->
+	<!-- 2-1. 자바스크립트 함수를 호출하여 함수 내에서 이동하는 경우 -->
+<!-- 	<input type="button" value="아이티윌 부산교육센터 홈페이지" onclick="goUrl()"> -->
+	<!-- 2-2. 자바스크립트 코드를 직접 기술하여 이동하는 경우 -->
+	<input type="button" value="아이티윌 부산교육센터 홈페이지" onclick="location.href='http://www.itwillbs.co.kr'">
+	
+	<!-- 3. URL 입력 버튼 클릭 시 goInputUrl() 함수 호출 -->
+	<input type="button" value="URL 입력" onclick="goInputUrl()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

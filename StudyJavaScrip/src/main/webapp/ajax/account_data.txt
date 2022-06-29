@@ -1,0 +1,6 @@
+[
+	{"ownerName":"홍길동","accountNo":"115500-00-123123","balance":100000,"agreeRcvSpam":true},
+	{"ownerName":"이순신","accountNo":"115500-01-888777","balance":38500,"agreeRcvSpam":false},
+	{"ownerName":"강감찬","accountNo":"115511-12-999999","balance":875400,"agreeRcvSpam":true}
+]
+

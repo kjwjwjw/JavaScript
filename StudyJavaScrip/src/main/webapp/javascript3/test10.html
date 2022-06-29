@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	document 객체의 getElementById() 함수
+	- 태그 내에 지정된 id 속성값(id 선택자)이 지정된 특정 태그에 접근하기 위해
+	  해당 태그의 객체를 얻어오는 함수
+	  => 지정된 id 에 해당하는 태그의 요소를 객체 형태로 리턴
+	- 함수 파라미터로 태그에 지정된 id 선택자의 속성값을 문자열로 전달
+	
+	< 기본 문법 >
+	document.getElementById("id선택자이름");
+	ex) document.getElementById("header"); => "header" 라는 id 속성값을 갖는 태그를 객체로 리턴
+	-----------------------------------------------------------
+	document 객체의 getElementsByTagName() 함수
+	- 특정 태그 전체를 한꺼번에 접근하기 위해 해당 태그의 객체를 얻어오는 함수
+	  => 지정된 태그와 일치하는 태그의 요소를 모두 객체 형태로 리턴
+	- 함수 파라미터로 태그 이름을 문자열로 전달
+	- 주의! 리턴받은 객체는 복수개의 객체가 HTMLCollection 타입으로 저장되어 있으며
+	  접근을 위해서는 반복문(주로 for...of)을 사용하여 접근해야함
+	  => 반복문을 통해 저장된 태그 객체 하나씩 별도로 접근
+	
+	< 기본 문법 >
+	document.getElementsByTagName("태그명");
+	ex) document.getElementsByTagName("h1"); => h1 태그를 모두 객체로 리턴
+	*/
+// 	var idHeader1 = document.getElementById("header1");
+// 	alert(idHeader1); // null 출력됨("header1" 이름을 갖는 태그 로딩되기 전 = 객체 없음)
+// 	idHeader1.style.background = "RED";
+	// => 주의! 일반 자바스크립트 형태로 실행 시 body 영역 로딩 전에 실행될 경우 실행 불가능!
+	
+	// onload 이벤트를 통해 함수 내에서 body 영역에 접근해야함
+	window.onload = function() {
+		var idHeader1 = document.getElementById("header1"); // header1 이라는 속성값의 태그 지정
+// 		alert(idHeader1); // HTMLHeadingElement 객체 출력됨(= 객체 존재함)
+		// 따라서, 지정된 객체(태그)에 접근하여 속성 등을 변경하는 작업 수행 가능
+		idHeader1.style.background = "RED"; // 지정된 객체의 background 속성을 "RED" 로 변경
+		
+		// "header2" 라는 이름의 id 선택자를 지정하여 해당 객체를 변수에 저장한 후
+		// background 속성을 "SKYBLUE" 로 변경
+		var idHeader2 = document.getElementById("header2");
+		idHeader2.style.background = "SKYBLUE";
+		
+		// "header2" 선택자에 해당하는 태그의 내용(텍스트) 변경
+		// => 해당 객체의 innerHTML 속성에 변경할 내용을 지정
+		idHeader2.innerHTML = "innerHTML 속성을 변경";
+		
+		// --------------------------------------------------------
+		// h2 태그를 지정하여 변수 tagsH2 에 저장
+		var tagsH2 = document.getElementsByTagName("h2");
+// 		alert(tagsH2 + ", " + typeof(tagsH2)); // HTMLCollection 객체 출력됨
+// 		tagsH2.style.background = "GREEN"; // 잘못된 코드
+		for(var tagH2 of tagsH2) { // 저장된 태그 객체를 하나씩 꺼내서 변수에 저장
+			tagH2.style.background = "GREEN";
+		}	
+	}
+	
+	function func1() {
+// 		alert("수업 시작!");
+
+		// id 속성값이 "status" 인 div 태그 객체 가져오기(tagDiv 에 저장)
+		var tagDiv = document.getElementById("status");
+		// div 태그 객체의 innerHTML 속성에 "JSP 수업 상태 : 시작됨!" 값 저장(= 변경)
+		tagDiv.innerHTML = "JSP 수업 상태 : 시작됨!";
+	}
+	
+	function func2() {
+// 		alert("수업 종료!");
+
+		// id 속성값이 "status" 인 div 태그 객체 가져오기(tagDiv 에 저장)
+		var tagDiv = document.getElementById("status");
+		// div 태그 객체의 innerHTML 속성에 "JSP 수업 상태 : 종료됨!" 값 저장(= 변경)
+		tagDiv.innerHTML = "JSP 수업 상태 : 종료됨!";
+	}
+	
+</script>
+</head>
+<body>
+	<h1>test10.html</h1>
+	<h3 id="header1">Header - 1</h3>
+	<h3 id="header2">Header - 2</h3>
+	<h2 id="header3">Header - 3</h2>
+	<h2 id="header4">Header - 4</h2>
+	<hr>
+	<div id="status">JSP 수업 상태</div>
+	<!-- [수업 시작] 버튼 클릭 시 func1() 함수 호출, [수업 종료] 버튼 클릭 시 func2() 함수 호출 -->
+	<input type="button" value="수업 시작" onclick="func1()">
+	<input type="button" value="수업 종료" onclick="func2()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

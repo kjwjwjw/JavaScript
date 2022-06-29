@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	문서 내의 이미지(img 태그)에 접근하는 방법
+	1. document.getElementById() 함수 또는 document.getElementsByTagName() 함수 사용
+	2. 이미지(img 태그)에 지정된 name 속성값으로 접근하는 방법 
+	   => document.name속성값.속성명 : 지정된 name속성값에 해당하는 이미지의 특정 속성에 접근
+	   ex) document.img1.src : "img1" 이라는 name 속성값에 해당하는 태그의 src 속성에 접근
+	3. 이미지(img 태그) 전체(= 복수개)를 배열 형태로 접근하는 방법
+	   => document.images[인덱스].속성명 : 복수개의 이미지 중 인덱스에 해당하는 이미지 속성에 접근
+	   ex) document.images[0].src : 첫번째 img 태그의 src 속성에 접근
+	*/
+	function func1() {
+// 		document.write("src : " + document.img1.src + "<br>");
+// 		document.write("width : " + document.img1.width + "<br>");
+// 		document.write("height : " + document.img1.height + "<br>");
+// 		document.write("border : " + document.img1.border + "<br>");
+		
+		var imgInfo = "src : " + document.img1.src + "\n" + 
+						"width : " + document.img1.width + "\n" + 
+						"height : " + document.img1.height + "\n" + 
+						"border : " + document.img1.border + "\n";
+		alert(imgInfo);
+	}
+	
+	function func2() {
+		// img1 이미지(1.jpg) 파일을 2.jpg 로 변경 
+		// 배열 형태로 접근할 경우
+		document.images[0].src = "2.jpg";
+		document.images[0].width = "300";
+		document.images[0].height = "300";
+		document.images[0].title = "2.jpg";
+	}
+	
+	function changeImage(tagImg, img) {
+		// this 미전달 시 : document.img2.xxx 속성으로 접근 가능
+		// ex) document.img2.src = img;
+		
+		// this 전달 시
+		tagImg.src = img;
+	}
+</script>
+</head>
+<body>
+	<h1>test12.html</h1>
+	<img src="1.jpg" name="img1" width="200" height="200" border="2" title="펭수" alt="펭수없음"><br>
+	<input type="button" value="이미지 속성정보 출력" onclick="func1()">
+	<input type="button" value="이미지 속성정보 변경" onclick="func2()"><br>
+	<hr>
+	<!-- 2.jpg 이미지 클릭 시 3.jpg 로 변경, 마우스 가져다 대면 4.jpg 마우스 빼면 5.jpg 로 변경 -->
+	<img src="2.jpg" name="img2" width="200" height="200"
+					onclick="changeImage(this, '3.jpg')" 
+					onmouseover="changeImage(this, '4.jpg')" 
+					onmouseout="changeImage(this, '5.jpg')"><br>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./test4.js"></script>
+<script type="text/javascript" >
+/*
+ * 매개변수도 있고, 리턴값도 있는 함수 정의 
+ */
+	function checkNum(num) {
+		document.write("전달받은 정수 :" +num+ "<br>");
+		var result = " ";
+		
+		if(num>0) {
+			var result = "양수";	
+		} else if(num<0){
+			var result = "음수";
+		} else {
+			var result ="0";
+		}
+		return result;
+}
+
+// 리턴받은 데이터 확인
+		document.write("리턴값 : " + checkNum(10) + "<br>");
+
+
+	    document.write("리턴값 : " + checkNum(20) + "<br>");
+
+		document.write("로그인 결과 : "  + login());
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

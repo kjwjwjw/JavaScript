@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+			// 1. 문자(string) 타입으로 변환
+			// =>참고. alert() 함수파라미터는 string타입이며, 
+			
+// 			var value1 =1;// 현재 value1 변수의 데이터타입은  number
+// 			document.write("변환전 타입: " + typeof(value1)+"<br>" );
+			
+// 			value1 = String(value1);
+// 			document.write("변환후 타입: " + typeof(value1)+"<br>" );
+
+
+// 			var value2 = true;
+// 			document.write("변환전 타입: " + typeof(value2) +"<br>");
+			
+// 			value2= String(value2);
+// 			document.write("변환후 타입: " + typeof(value2) +"<br>");
+			
+// 			document.write("<hr>");
+			
+			//-----------------------------------------------
+			document.write("10"/ "5");
+			document.write("<br>");
+			
+			var strNum = prompt("정수를 입력하세요."); 
+			document.write(strNum+"=> 변환전 타입: " + typeof(strNum) +"<br>");
+			
+			var num = Number(strNum);
+			document.write(num + "=> 변환후 타입: " + typeof(num) +"<br>");
+
+			switch(Number(strNum)) {
+			case 1 : document.write("1입니다" +"<br>");
+					 break;
+			case 2 : document.write("2입니다" +"<br>");
+			         break;
+			default : document.write("없는 숫자입니다" +"<br>");
+			}
+			
+			// =====================================================
+				
+				strNum = Number("1234a");
+				document.write(strNum+" => 변환전 타입: " + typeof(strNum) +"<br>");
+
+</script>
+</head>
+<body>
+</body>
+</html>
